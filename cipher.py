@@ -56,6 +56,7 @@ def caesarEnc(msg, rot):
 		else:
 			msgEnc = msgEnc + char
 	print('MsgEnc: ' + msgEnc)
+	return msgEnc
 
 def vigenereEnc(msg, key):
 	start = 97
@@ -83,6 +84,7 @@ def vigenereEnc(msg, key):
 		else:
 			msgEnc = msgEnc + char
 	print('MsgEnc: ' + msgEnc)
+	return msgEnc
 
 def vigenereDec(msg, key):
 	start = 97
@@ -110,6 +112,7 @@ def vigenereDec(msg, key):
 		else:
 			msgDec = msgDec + char
 	print('MsgDec: ' + msgDec)
+	return msgDec
 
 def atbashEnc(msg):
 	start = 97
@@ -123,6 +126,7 @@ def atbashEnc(msg):
 		else:
 			msgEnc = msgEnc + char
 	print('MsgEnc: ' + msgEnc)
+	return msgEnc
 
 def atbashDec(msg):
 	start = 97
@@ -136,6 +140,7 @@ def atbashDec(msg):
 		else:
 			msgDec = msgDec + char
 	print('MsgDec: ' + msgDec)
+	return msgDec
 
 def keywordEnc(msg, key):
 	start = 97
@@ -145,6 +150,10 @@ def keywordEnc(msg, key):
 	msgEnc = ''
 	colection = list(key)
 
+	for i in range(0, len(colection) - 1):
+		if colection[i] in colection[0:i]:
+			colection.pop(i)
+	
 	for i in range(start, end+1):
 		if chr(i) not in colection:
 			colection.append(chr(i))
@@ -156,6 +165,7 @@ def keywordEnc(msg, key):
 		else:
 			msgEnc = msgEnc + char
 	print('MsgEnc: ' + msgEnc)
+	return msgEnc
 
 def keywordDec(msg,key):
 	start = 97
@@ -164,6 +174,10 @@ def keywordDec(msg,key):
 	key = key.lower()
 	msgDec = ''
 	colection = list(key)
+
+	for i in range(0, len(colection) - 1):
+		if colection[i] in colection[0:i]:
+			colection.pop(i)
 
 	for i in range(start, end+1):
 		if chr(i) not in colection:
@@ -176,6 +190,7 @@ def keywordDec(msg,key):
 		else:
 			msgDec = msgDec + char
 	print('MsgDec: ' + msgDec)
+	return msgDec
 
 # Ainda não está funcionando
 def oneTimePad(msg, key):
