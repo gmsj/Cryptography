@@ -16,6 +16,7 @@ Alguns Scripts com foco em criptografia, atualmente temos os seguintes scripts:
 * Cifra de vigenere (Enc e Dec)
 * Cifra de Atbash (Enc e Dec)
 * Cifra de Palavra-Chave (Enc e Dec)
+* Cifra de Bacon (Enc e Dec)
 * One-Time-Pad (desenvolvimento)
 
 ## Outros:

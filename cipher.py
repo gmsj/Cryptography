@@ -8,6 +8,18 @@
 import collections
 import base64
 
+bacon_to_letter_26 = {
+    'aaaaa':'A', 'aaaab':'B', 'aaaba':'C', 'aaabb':'D', 'aabaa':'E',
+    'aabab':'F', 'aabba':'G', 'aabbb':'H', 'abaaa':'I', 'abaab':'J',
+    'ababa':'K', 'ababb':'L', 'abbaa':'M', 'abbab':'N', 'abbba':'O',
+    'abbbb':'P', 'baaaa':'Q', 'baaab':'R', 'baaba':'S', 'baabb':'T',
+    'babaa':'U', 'babab':'V', 'babba':'W', 'babbb':'X', 'bbaaa':'Y',
+    'bbaab':'Z'
+}
+
+letter_to_bacon_26 = { value : key for (key, value) in bacon_to_letter_26.items() }
+
+
 def frequencyAnalysis(msg):
 	# Recomendado com msgs de pelo menos 50 caracteres
 	return collections.Counter(msg.upper()).most_common()
@@ -191,6 +203,26 @@ def keywordDec(msg,key):
 			msgDec = msgDec + char
 	print('MsgDec: ' + msgDec)
 	return msgDec
+
+def baconDec(msg):
+	words = msg.split()
+	msgDec = ''
+
+	for word in words:
+		msgDec = msgDec + bacon_to_letter_26[word]
+
+	print('MsgDec: ', msgDec)
+	return msgDec
+
+def baconEnc(msg):
+	letters = list(msg)
+	msgEnc = ''
+
+	for i in letters:
+		msgEnc = msgEnc + letter_to_bacon_26[i] + ' '
+	
+	print('MsgEnc: ', msgEnc)
+	return msgEnc
 
 # Ainda não está funcionando
 def oneTimePad(msg, key):
